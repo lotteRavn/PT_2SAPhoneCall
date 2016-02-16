@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PhoneCall" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,124 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PhoneNumber" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5GY-9x-c2q">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YcX-7q-sDt">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VH6-Vi-1mO">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="3iG-im-9HB"/>
+                                </constraints>
+                                <state key="normal" title="Call"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3iG-im-9HB"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="3iG-im-9HB"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="callPhone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MHn-JX-Ofp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pft-9C-yf2">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="H0t-0i-VEo"/>
+                                </constraints>
+                                <state key="normal" title="SMS"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="H0t-0i-VEo"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="H0t-0i-VEo"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="sendSMS:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Cp-9A-Umn"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pft-9C-yf2" firstAttribute="baseline" secondItem="VH6-Vi-1mO" secondAttribute="baseline" id="AlX-91-EJg"/>
+                            <constraint firstItem="YcX-7q-sDt" firstAttribute="top" secondItem="5GY-9x-c2q" secondAttribute="bottom" constant="23" id="Fmd-e4-Cm2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YcX-7q-sDt" secondAttribute="trailing" constant="11" id="Him-Mr-Cit"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5GY-9x-c2q" secondAttribute="bottom" constant="470" id="OOP-iZ-GA3"/>
+                            <constraint firstItem="YcX-7q-sDt" firstAttribute="width" secondItem="5GY-9x-c2q" secondAttribute="width" id="QGI-Bj-8Wf"/>
+                            <constraint firstItem="pft-9C-yf2" firstAttribute="trailing" secondItem="YcX-7q-sDt" secondAttribute="trailing" id="TvK-Hm-Idx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YcX-7q-sDt" secondAttribute="bottom" constant="317" id="UNB-Dn-cuR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5GY-9x-c2q" secondAttribute="trailing" constant="11" id="VCY-lI-NWc"/>
+                            <constraint firstItem="5GY-9x-c2q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="irB-1Z-1cx"/>
+                            <constraint firstItem="VH6-Vi-1mO" firstAttribute="leading" secondItem="YcX-7q-sDt" secondAttribute="leading" id="nDl-ua-5LZ"/>
+                            <constraint firstItem="VH6-Vi-1mO" firstAttribute="top" secondItem="YcX-7q-sDt" secondAttribute="bottom" constant="33" id="sGv-U7-nq9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5GY-9x-c2q"/>
+                                <exclude reference="YcX-7q-sDt"/>
+                                <exclude reference="VH6-Vi-1mO"/>
+                                <exclude reference="pft-9C-yf2"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="VCY-lI-NWc"/>
+                                <exclude reference="irB-1Z-1cx"/>
+                                <exclude reference="Fmd-e4-Cm2"/>
+                                <exclude reference="Him-Mr-Cit"/>
+                                <exclude reference="QGI-Bj-8Wf"/>
+                                <exclude reference="nDl-ua-5LZ"/>
+                                <exclude reference="sGv-U7-nq9"/>
+                                <exclude reference="AlX-91-EJg"/>
+                                <exclude reference="TvK-Hm-Idx"/>
+                                <exclude reference="OOP-iZ-GA3"/>
+                                <exclude reference="UNB-Dn-cuR"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="5GY-9x-c2q"/>
+                                <include reference="YcX-7q-sDt"/>
+                                <include reference="VH6-Vi-1mO"/>
+                                <include reference="pft-9C-yf2"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="VCY-lI-NWc"/>
+                                <include reference="irB-1Z-1cx"/>
+                                <include reference="Fmd-e4-Cm2"/>
+                                <include reference="Him-Mr-Cit"/>
+                                <include reference="QGI-Bj-8Wf"/>
+                                <include reference="nDl-ua-5LZ"/>
+                                <include reference="sGv-U7-nq9"/>
+                                <include reference="AlX-91-EJg"/>
+                                <include reference="TvK-Hm-Idx"/>
+                                <include reference="OOP-iZ-GA3"/>
+                                <include reference="UNB-Dn-cuR"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="txtPhoneNumber" destination="5GY-9x-c2q" id="OxE-PM-wuy"/>
+                        <outlet property="txtSMS" destination="YcX-7q-sDt" id="sp7-pL-0uS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="555" y="202"/>
         </scene>
     </scenes>
 </document>
